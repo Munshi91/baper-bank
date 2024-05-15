@@ -6,7 +6,7 @@ document.getElementById('btn-deposit').addEventListener('click', function () {
   depositField.value = '';
 
   const depositTotalElement = document.getElementById('deposit-total');
-
+  console.log(depositTotalElement);
   const previousDepositTotalString = depositTotalElement.innerText;
   const previousDepositTotal = parseFloat(previousDepositTotalString);
 
@@ -15,6 +15,7 @@ document.getElementById('btn-deposit').addEventListener('click', function () {
 
   //Balance total deposit
   const balanceTotalDeposit = document.getElementById('balance-total');
+
   const previousBalanceTotalString = balanceTotalDeposit.innerText;
   const previousBalanceTotal = parseFloat(previousBalanceTotalString);
 
@@ -28,4 +29,23 @@ document.getElementById('btn-withdraw').addEventListener('click', function () {
   const newWithdrawAmountString = withdrawField.value;
   const newWithdrawAmount = parseFloat(newWithdrawAmountString);
   withdrawField.value = '';
+
+  // Add withdraw total
+
+  const withdrawTotalElement = document.getElementById('withdraw-total');
+
+  const previousWithdrawTotalString = withdrawTotalElement.innerText;
+  const previousWithdrawBalanceTotal = parseFloat(previousWithdrawTotalString);
+  const currentWithdrawTotal = previousWithdrawBalanceTotal + newWithdrawAmount;
+  withdrawTotalElement.innerText = currentWithdrawTotal;
+
+  //Balance Total withdraw
+  const balanceTotalWithdraw = document.getElementById('balance-total');
+  const previousWithdrawTotalBalanceString = balanceTotalWithdraw.innerText;
+  const previousBalanceWithdrawAmount = parseFloat(
+    previousWithdrawTotalBalanceString
+  );
+  const currentWithdrawTotalAmount =
+    previousBalanceWithdrawAmount - newWithdrawAmount;
+  balanceTotalWithdraw.innerText = currentWithdrawTotalAmount;
 });
